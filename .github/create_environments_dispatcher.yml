@@ -1,0 +1,33 @@
+name: Create Kosli Environments Dispatcher
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: 'Where to create the Environments'
+        type: choice
+        required: true
+        options:
+          - staging
+          - prod
+          - both
+
+jobs:
+  create-environment-on-staging:
+    if: ${{ inputs.scope == 'staging' || inputs.scope == 'both' }}
+    needs: []
+    uses: ./.github/workflows/create_environments.yml
+    with:
+      kosli_host: https://staging.app.kosli.com
+    secrets:
+      KOSLI_API_TOKEN: ${{ secrets.KOSLI_API_TOKEN_STAGING }}
+
+
+  create-environment-on-prod:
+    if: ${{ inputs.scope == 'prod' || inputs.scope == 'both' }}
+    needs: []
+    uses: ./.github/workflows/create_environments.yml
+    with:
+      kosli_host: https://app.kosli.com
+    secrets:
+      KOSLI_API_TOKEN: ${{ secrets.KOSLI_API_TOKEN_PROD }}
