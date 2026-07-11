@@ -38,9 +38,9 @@ jobs:
       - name: Create Kosli environment for staging-k8s
         run:
           kosli create environment staging-k8s
-            --type k8s
+            --type K8S
 
       - name: Create Kosli environment for staging-ecs
         run:
           kosli create environment staging-ecs
-            --type ecs
+            --type ECS
