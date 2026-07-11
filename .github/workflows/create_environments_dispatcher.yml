@@ -1,4 +1,4 @@
-name: Create Kosli Environments Dispatcher
+name: ▶️ Create Kosli Environments Dispatcher
 
 on:
   workflow_dispatch:

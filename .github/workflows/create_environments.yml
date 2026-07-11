@@ -1,4 +1,4 @@
-name: Create Kosli Environments
+name: 📦 Create Kosli Environments
 
 on:
   workflow_call:
